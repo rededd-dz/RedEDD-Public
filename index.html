@@ -1,14 +1,143 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Client Video</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RedEDD : L'Automatisation des EDD en Algérie sur AutoCAD</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif; /* Apply Inter font */
+            /* Gradient background from left to right */
+            background: linear-gradient(to right, #720026, #B82132); /* Corrected gradient syntax */
+            color: #333; /* Default text color */
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex; /* Use flexbox for centering content */
+            justify-content: center;
+            align-items: flex-start; /* Align items to the top */
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 960px; /* Max width for content */
+            width: 95%; /* Responsive width */
+            margin-top: 40px; /* Add some space from the top */
+            margin-bottom: 40px; /* Add space at the bottom */
+            background-color: #ffffff; /* White background for the main content area */
+            padding: 30px;
+            border-radius: 12px; /* Rounded corners for the main container */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* More pronounced shadow */
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee; /* Separator line */
+        }
+
+        h1 {
+            font-size: 2.5rem; /* Larger heading */
+            font-weight: 700; /* Bold font weight */
+            color: #2c3e50; /* Darker heading color */
+            margin-bottom: 10px;
+        }
+
+        .video-section {
+            margin-bottom: 30px;
+        }
+
+        video {
+            width: 100%; /* Make video responsive */
+            height: auto;
+            border-radius: 8px; /* Rounded corners for video */
+            background-color: #000; /* Black background for video area */
+            /* Add a cursor pointer to indicate it's clickable */
+            cursor: pointer;
+        }
+
+        .description {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #eee; /* Separator line */
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee; /* Separator line */
+            font-size: 0.9rem;
+            color: #7f8c8d; /* Muted text color */
+        }
+    </style>
 </head>
-<body style="text-align:center; background:#111; color:#fff; font-family:sans-serif;">
-  <h2 style="margin-top:2rem;">Client Preview Video</h2>
-  <video width="800" controls style="border:4px solid #fff; border-radius:12px;">
-    <source src="https://www.youtube.com/watch?v=SJrg98QldUo" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+<body>
+
+    <div class="container">
+        <header>
+            <p class="text-lg text-gray-700">Découvrez RedEDD, le plugin AutoCAD conçu spécifiquement pour automatiser et simplifier la création de vos EDD, en conformité avec la réglementation algérienne.</p>
+        </header>
+
+        <main>
+            <section class="video-section">
+                <h2 class="text-xl font-semibold mb-4 text-center">RedEDD : L'Automatisation des EDD en Algérie sur AutoCAD</h2>
+                <video id="myVideo" controls> <source src="https://www.dropbox.com/scl/fi/hieaxlucfctuhb9ow33nc/RedEDD-Promotional-Video.mp4?rlkey=49s1p682uxzfl7sfut0yffhkz&st=njv1mkgv&raw=1" type="video/mp4">
+                    Votre navigateur ne supporte pas la balise vidéo. Veuillez essayer un autre navigateur.
+                </video>
+            </section>
+
+            <section class="description">
+                <h2 class="text-xl font-semibold mb-4">À propos de cette vidéo</h2>
+                <p>
+                    Vous passez trop de temps à créer des États Descriptifs de Division (EDD) manuellement en Algérie ? Les erreurs sont fréquentes et les modifications sont un casse-tête ? Découvrez RedEDD, le plugin AutoCAD conçu spécifiquement pour automatiser et simplifier la création de vos EDD, en conformité avec la réglementation algérienne.
+                </p>
+                <p class="mt-4">
+                    Dans cette vidéo, nous vous montrons comment RedEDD vous permet de :
+                </p>
+                <ul class="list-disc list-inside ml-4">
+                    <li>Gagner un temps précieux : Réalisez des EDD volumineux en une fraction du temps nécessaire avec les méthodes traditionnelles.</li>
+                    <li>Éliminer les erreurs : Bénéficiez de calculs précis et d'une génération automatique de documents pour une fiabilité maximale.</li>
+                    <li>Simplifier les modifications : Mettez à jour vos EDD sans effort, même après des changements complexes.</li>
+                    <li>Assurer la conformité : Travaillez en toute confiance, sachant que vos EDD respectent les normes algériennes.</li>
+                </ul>
+                <p class="mt-4">
+                    Ne laissez plus la complexité des EDD freiner votre productivité. Regardez cette vidéo pour voir RedEDD en action et comprendre comment il peut transformer votre flux de travail et augmenter votre rentabilité.
+                </p>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 RedEDD. Tous droits réservés.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Get the video element
+        const video = document.getElementById('myVideo');
+
+        // Add a click event listener to the video
+        video.addEventListener('click', function() {
+            // Check if fullscreen is supported by the browser
+            if (video.requestFullscreen) {
+                video.requestFullscreen();
+            } else if (video.mozRequestFullScreen) { /* Firefox */
+                video.mozRequestFullScreen();
+            } else if (video.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+                video.webkitRequestFullscreen();
+            } else if (video.msRequestFullscreen) { /* IE/Edge */
+                video.msRequestFullscreen();
+            }
+        });
+
+        // Note: The browser's default fullscreen button is enabled by the 'controls' attribute.
+        // If it appears disabled, it might be due to external factors like how the video is hosted
+        // or specific browser/environment restrictions. This script provides an alternative way
+        // to trigger fullscreen by clicking the video itself.
+    </script>
+
 </body>
 </html>
