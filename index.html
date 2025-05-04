@@ -55,8 +55,8 @@
             height: auto;
             border-radius: 8px; /* Rounded corners for video */
             background-color: #000; /* Black background for video area */
-            /* Add a cursor pointer to indicate it's clickable */
-            cursor: pointer;
+            /* Removed cursor pointer as click/touch no longer triggers fullscreen */
+            /* cursor: pointer; */
         }
 
         .description {
@@ -88,6 +88,9 @@
                 <video id="myVideo" controls> <source src="https://www.dropbox.com/scl/fi/gugvk65z8zrab3x9o0mbz/RedEDD-Promotional-Video.mp4?rlkey=rbvp67cunbgip2hucq2kw43d1&st=iopt67py&raw=1" type="video/mp4">
                     Votre navigateur ne supporte pas la balise vidéo. Veuillez essayer un autre navigateur.
                 </video>
+                <p class="text-sm text-gray-600 mt-2 text-center">
+                    Pour une meilleure expérience, utilisez le bouton plein écran dans les commandes de la vidéo.
+                </p>
             </section>
 
             <section class="description">
@@ -113,37 +116,11 @@
             <p>&copy; 2025 RedEDD. Tous droits réservés.</p>
         </footer>
     </div>
-     <script>
-        // Get the video element
-        const video = document.getElementById('myVideo');
 
-        // Function to request fullscreen
-        function requestFullscreen() {
-            if (video.requestFullscreen) {
-                video.requestFullscreen();
-            } else if (video.mozRequestFullScreen) { /* Firefox */
-                video.mozRequestFullScreen();
-            } else if (video.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
-                video.webkitRequestFullscreen();
-            } else if (video.msRequestFullscreen) { /* IE/Edge */
-                video.msRequestFullscreen();
-            }
-        }
-
-        // Add a click event listener for desktop
-        video.addEventListener('click', requestFullscreen);
-
-        // Add a touchstart event listener for mobile
-        video.addEventListener('touchstart', function(e) {
-            // Prevent default touch behavior (like scrolling)
-            e.preventDefault();
-            requestFullscreen();
-        });
-
-        // Note: The browser's default fullscreen button is enabled by the 'controls' attribute.
-        // If it appears disabled, it might be due to external factors like how the video is hosted
-        // or specific browser/environment restrictions. These scripts provide alternative ways
-        // to trigger fullscreen by clicking or touching the video itself.
+    <script>
+        // Removed the JavaScript for triggering fullscreen on click/touch.
+        // The browser's default fullscreen button in the controls should be used.
     </script>
+
 </body>
 </html>
