@@ -114,27 +114,36 @@
         </footer>
     </div>
      <script>
-         // Get the video element
-         const video = document.getElementById('myVideo');
- 
-         // Add a click event listener to the video
-         video.addEventListener('click', function() {
-             // Check if fullscreen is supported by the browser
-             if (video.requestFullscreen) {
-                 video.requestFullscreen();
-             } else if (video.mozRequestFullScreen) { /* Firefox */
-                 video.mozRequestFullScreen();
-             } else if (video.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
-                 video.webkitRequestFullscreen();
-             } else if (video.msRequestFullscreen) { /* IE/Edge */
-                 video.msRequestFullscreen();
-             }
-         });
- 
-         // Note: The browser's default fullscreen button is enabled by the 'controls' attribute.
-         // If it appears disabled, it might be due to external factors like how the video is hosted
-         // or specific browser/environment restrictions. This script provides an alternative way
-         // to trigger fullscreen by clicking the video itself.
-     </script>
+        // Get the video element
+        const video = document.getElementById('myVideo');
+
+        // Function to request fullscreen
+        function requestFullscreen() {
+            if (video.requestFullscreen) {
+                video.requestFullscreen();
+            } else if (video.mozRequestFullScreen) { /* Firefox */
+                video.mozRequestFullScreen();
+            } else if (video.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+                video.webkitRequestFullscreen();
+            } else if (video.msRequestFullscreen) { /* IE/Edge */
+                video.msRequestFullscreen();
+            }
+        }
+
+        // Add a click event listener for desktop
+        video.addEventListener('click', requestFullscreen);
+
+        // Add a touchstart event listener for mobile
+        video.addEventListener('touchstart', function(e) {
+            // Prevent default touch behavior (like scrolling)
+            e.preventDefault();
+            requestFullscreen();
+        });
+
+        // Note: The browser's default fullscreen button is enabled by the 'controls' attribute.
+        // If it appears disabled, it might be due to external factors like how the video is hosted
+        // or specific browser/environment restrictions. These scripts provide alternative ways
+        // to trigger fullscreen by clicking or touching the video itself.
+    </script>
 </body>
 </html>
